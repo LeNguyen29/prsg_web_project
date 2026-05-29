@@ -1,0 +1,59 @@
+body {
+    background-image: url("../assets/Megzord.webp");
+    background-size: cover; /*  Stretches the image to fill the entire container. */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Keeps the image stationary while you scroll. */
+}
+
+.background-tint {
+    background-color: rgba(0, 107, 200, 0.5);
+    background-blend-mode: multiply;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+
+main #game_description {
+    margin-top: 150px;
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 60px;
+}
+
+.white_divider {
+    background-color: white;
+    width: 75%;
+    height: 10px;
+}
+
+main #play_btn {
+    margin-top: 30px;
+    padding: 15px;
+    border-radius: 20px;
+
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#studio_name {
+    margin-top: 125px;
+    padding: 10px;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+#studio_logo {
+    max-width: 350px;
+}

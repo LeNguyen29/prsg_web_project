@@ -1,0 +1,32 @@
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+    background-color: #001727;
+}
+
+.navbar_logo img {
+    width: 70px;
+}
+
+.nav_links {
+    display: flex;
+    gap: 80px;
+
+    list-style: none; /* Remove the bullets */
+    padding: 0; /* Remove the default tab space */
+    margin: 0; 
+}
+
+.nav_links a {
+    color: white;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+body {
+    margin: 0;
+}
