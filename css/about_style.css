@@ -154,23 +154,25 @@ main {
 
 .slide .video_wrapper {
     flex: 6;
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
     width: 100%;
-    height: 100%;
+    aspect-ratio: 16 / 9;
+    margin-top: 10px;
 }
 
-.slide .video_wrapper video {
-    border-radius: 5px;
+.slide .video_wrapper iframe {
     width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 5px;
 }
 
 .slide .text_section {
     flex: 5;
     margin-left: 20px;
-    padding-top: 30px;
-    height: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .slide .text_section h2 {
