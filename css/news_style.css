@@ -1,0 +1,136 @@
+:root {
+    --gold-border: rgb(207, 176, 1) 5px solid;
+    --gold-divider-color: #e4a915;
+    --gold-text-color: #FFBF00;
+    --background-tint: linear-gradient(
+        rgba(0, 0, 0, 0.65), 
+        rgba(0, 0, 0, 0.45)
+    );
+    --page-background-color: #001725;
+}
+
+.page_title {
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.4)
+    )
+    , url("../assets/KibaWallpaper.webp");
+
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.page_title {
+    margin-top: 90px;
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.page_title h1 {
+    font-size: 75px;
+    font-weight: bold;
+    font-family: "sansation", sans-serif;
+    color: var(--gold-text-color);
+}
+
+.page_title p {
+    text-align: center;
+    width: 40%;
+    font-size: 30px;
+    font-family: "sansation", sans-serif;
+    color: white;
+}
+
+.news_section {
+    display: block;
+    background-color: var(--page-background-color);
+    padding: 20px 0;
+}
+
+.news_list {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.news_card {
+    display: flex;
+    width: 85%;
+    border-radius: 5px;
+    overflow: hidden; 
+    gap: 20px;
+    background: linear-gradient( to right,
+            rgb(35, 35, 35),
+            #00304A
+        );
+}
+
+.news_card img {
+    flex: 4;
+    width: 100%;
+    height: 100%;
+}
+
+.news_card .card_txt {
+    flex: 6;
+    margin: 20px 0;
+    font-family: "sansation", sans-serif;
+}
+
+.news_card .card_txt .news_date {
+    color: white;
+}
+
+.news_card .card_txt .news_title {
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.news_card .card_txt .news_desc {
+    color: white;
+    width: 80%;
+    margin: 20px 0;
+    font-size: 15px;
+}
+
+.news_card .card_txt .read_more_link {
+    margin-top: 30px;
+    color: var(--gold-text-color);
+}
+
+.pagination_container {
+    display: flex;
+    justify-content: center;
+    margin:0;
+    padding: 20px 0;
+}
+
+.pagination {
+    margin: 0;
+}
+
+.pagination .page-link {
+    background-color: #001725;
+    color: white;
+    border: 1px solid #444;
+    font-family: "sansation", sans-serif;
+}
+
+.pagination .page-link:hover {
+    background-color: #00304A;
+    color: var(--gold-text-color);
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--gold-text-color);
+    border-color: var(--gold-text-color);
+    color: black;
+}

@@ -1,47 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/index_style.css">
     <link rel="stylesheet" href="css/navbar_style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/footer_style.css">
+    <link rel="stylesheet" href="css/index_style.css">
 
-    <title>PRSG Home</title>
-    <link rel="icon" type="image/x-icon" href="assets/FS_Logo.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="icon" type="image/x-icon" href="assets/FS_Icon.webp">
+    <title>PRSG - Home</title>
 </head>
 
-<body class="background-tint">
+<body>
     <header>
-        <div id="navbar"></div>
+        <div id="navbar_div"></div>
     </header>
 
     <main>
-        <section id="game_description">
-            <p>DELIVERING PREMIUM POWER RANGERS EXPERIENCE ON ROBLOX</p>
+        <section id="game_desc">
+            <video class="video_bg" autoplay muted loop>
+                <source src="assets/Showcase.mp4" type="video/mp4">
+            </video>
+
+            <img id="game_logo" src="assets/PRSG_Logo.png">
+
+            <p id="desc">
+                Fan made open world Power Ranger RPG game on Roblox that let you fight evil and do dramatic
+                poses
+            </p>
+
+            <button id="play_btn" type="button" class="btn btn-primary">
+                Join The Pre Alpha <i class="fa-solid fa-play"></i>
+            </button>
         </section>
 
-        <div class="white_divider"></div>
-        
-        <button id="play_btn" type="button" class="btn btn-primary">
-            Play Now <i class="fa-solid fa-play"></i>
-        </button>
+        <section class="section_breaker">
+            <p>
+                Embracing the spirits and history of </br>
+                Power Rangers and Super Sentai
+            </p>
 
-        <div id="studio_name">
-            <img id="studio_logo" src="assets/Fragmented_Studio_Logo.png">
-        </div>
+            <svg class="divider-svg" viewBox="0 0 600 40">
+                <line class="divider-line left-line" x1="20" y1="20" x2="280" y2="20" />
+
+                <line class="divider-line right-line" x1="320" y1="20" x2="580" y2="20" />
+
+                <rect class="divider-diamond" x="290" y="10" width="20" height="20" />
+            </svg>
+        </section>
+
+        <section id="story_card" class="desc_card desc_card_left">
+            <h2>STORY</h2>
+            <h3>
+                Inspired by the Shattered Grid event by <br>
+                Boom! Studio
+            </h3>
+            <p>
+                Takes place in the early stages of the war between Zordon and the forces of Lord Drakkon. You play as a
+                Ranger who survived Drakkon’s invasion of your home dimension. Recruited by the Mighty Morphin Rangers
+                from another world, you join the fight to save the Morphing Grid.
+            </p>
+        </section>
+
+        <section id="morph_card" class="desc_card desc_card_right">
+            <h2>MORPHINOMINAL</h2>
+            <h3>
+                Relive the childhood fantasy of becoming a <br>
+                Power Ranger
+            </h3>
+            <p>
+                You are not playing as any existing characters in either series, but as
+                yourself. Pick from a variety of rangers inspired by generations of Power Rangers and Super Sentai
+                teams. Step into the story and morph into the suit you grew up loving.
+            </p>
+        </section>
+
+        <section id="explore_card" class="desc_card desc_card_left">
+            <h2>EXPLORE</h2>
+            <h3>Welcome to Fabulous Angle Grove</h3>
+            <p>
+                See familiar landmark from your favorite Tokusatsu show, find hidden location and secrets. 
+                Experience a world crafted by passionate fans, with story told through its environment.
+            </p>
+        </section>
+
+        <section id="combat_card" class="desc_card desc_card_right">
+            <h2>COMBAT</h2>
+            <h3>Engage in PVE or fight with other players in PVP battles</h3>
+            <p>
+                Each ranger has their own set of weapons, abilities, and power up forms based on their show. 
+                Team up with fellow Rangers and fight off the forces of evil or do the opposite for your own amusement. 
+                After all, villainy can be fun.
+            </p>
+        </section>
+        
+        <section id="cosmetics_card" class="desc_card desc_card_center">
+            <h2>COSMETICS</h2>
+            <h3>Customize your rangers and express yourself</h3>
+            <p>
+                From the classic suits to legends beyond the Morphing Grid, customize your Ranger with skins and cosmetics 
+                inspired from across the history of Super Sentai and Power Rangers.
+            </p>
+        </section>
     </main>
 
-    <footer></footer>
+    <footer>
+        <div id="footer_content"></div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/94c96a59cb.js" crossorigin="anonymous"></script>
 </body>
+
 </html>
 
 <script>
     fetch("navbar.html")
         .then(response => response.text())
         .then(data => {
-            document.getElementById("navbar").innerHTML = data;
+            document.getElementById("navbar_div").innerHTML = data;
+        });
+
+    fetch("footer.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("footer_content").innerHTML = data;
         });
 </script>

@@ -1,11 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PRSG - News</title>
+
+        <linK rel="stylesheet" href="css/news_style.css">
+        <link rel="stylesheet" href="css/navbar_style.css">
+        <link rel="stylesheet" href="css/footer_style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="icon" type="image/x-icon" href="assets/FS_Icon.webp">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <header>
+            <div id="navbar_div"></div>
+        </header>
+
+        <main>
+            <section class="page_title">
+                <h1>NEWS</h1>
+                <p>Read the latest Fragment Studios development and game updates</p>
+            </section>
+
+            <section class="news_section">
+                <nav class="pagination_container">
+                    <ul id="pagination_top" class="pagination"></ul>
+                </nav>
+
+                <div id="news_list" class="news_list"></div>
+
+                <nav class="pagination_container">
+                    <ul id="pagination_bottom" class="pagination"></ul>
+                </nav>
+            </section>
+        </main>
+
+        <footer>
+            <div id="footer_content"></div>
+        </footer>
+    </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/94c96a59cb.js" crossorigin="anonymous"></script>
+    <script src="js/news.js"></script>
 </html>
+
+<script>
+    fetch("navbar.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("navbar_div").innerHTML = data;
+        });
+
+    fetch("footer.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("footer_content").innerHTML = data;
+        });
+</script>
