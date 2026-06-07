@@ -206,25 +206,25 @@ main {
 
 #story_card {
     background-image: var(--background-tint-left), 
-        url("../assets/RangerSentry.png");
+        url("../assets/Image/RangerSentry.png");
 }
 
 #morph_card {
     background-image: var(--background-tint-right),
-        url("../assets/Zeo_Rollcall.png");
+        url("../assets/Image/Zeo_Rollcall.png");
 }
 
 #explore_card {
     background-image: var(--background-tint-left),
-        url("../assets/Zord_Graveyard.png");
+        url("../assets/Image/Zord_Graveyard.png");
 }
 
 #combat_card {
     background-image: var(--background-tint-right),
-        url("../assets/DT_fight.png");
+        url("../assets/Image/DT_fight.png");
 }
 
 #cosmetics_card {
     background-image: var(--background-tint),
-        url("../assets/Skin.png");
+        url("../assets/Image/Skin.png");
 }

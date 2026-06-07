@@ -1,28 +1,6 @@
-const posts = [
-  {
-    date: "June 6, 2026",
-    title: "GOKAI BLACK UPDATE",
-    description: "A menacing ship approaches the island. Give no quarter, for this be mutiny. Dead men tell no tales, so live and make it showy.",
-    link: "post-1.html",
-    img_cover: "assets/GokaiBlack.png"
-  },
-  {
-    date: "May 28, 2026",
-    title: "Development Blog: Ranger Combat",
-    description: "A closer look at how Ranger weapons and abilities work.",
-    link: "post-2.html",
-    img_cover: "assets/GokaiBlack.png"
-  },
-  {
-    date: "May 15, 2026",
-    title: "Version 0.4.1 Update",
-    description: "New suits, UI improvements, and mission updates.",
-    link: "post-3.html",
-    img_cover: "assets/GokaiBlack.png"
-  }
-];
+var posts = [];
 
-const postsPerPage = 5;
+const postsPerPage = 3;
 let currentPage = 1;
 
 const newsList = document.getElementById("news_list");
@@ -78,5 +56,16 @@ function goToPage(page) {
   displayPagination();
 }
 
-displayPosts();
-displayPagination();
+async function loadPosts() {
+
+  const response = await fetch("data/news_posts.json");
+
+  posts = await response.json();
+
+  console.log(posts);
+
+  displayPosts();
+  displayPagination();
+}
+
+loadPosts();

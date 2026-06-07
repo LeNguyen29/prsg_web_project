@@ -106,13 +106,13 @@ main {
 }
 
 #game_goal {
-    background-image: var(--background-tint), url("../assets/Megzord.webp");
+    background-image: var(--background-tint), url("../assets/Image/Megzord.webp");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 #developed_by {
-    background-image: var(--background-tint), url("../assets/Sky_Ship.png");
+    background-image: var(--background-tint), url("../assets/Image/Sky_Ship.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -128,19 +128,19 @@ main {
 }
 
 #morph_slide {
-    background-image: var(--background-tint), url("../assets/mmpr_red_vs_drakkon.webp");
+    background-image: var(--background-tint), url("../assets/Image/mmpr_red_vs_drakkon.webp");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 #rollcall_slide {
-    background-image: var(--background-tint), url("../assets/GozyuPolar.png");
+    background-image: var(--background-tint), url("../assets/Image/GozyuPolar.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 #abilities_slide {
-    background-image: var(--background-tint), url("../assets/GokaiBlack.png");
+    background-image: var(--background-tint), url("../assets/Image/GokaiBlack.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
