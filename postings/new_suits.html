@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PRSG - Update Post</title>
+        <link rel="icon" type="image/x-icon" href="/assets/Logo/FS_Icon.webp">
+
+        <link rel="stylesheet" href="/css/posts_style.css">
+        <link rel="stylesheet" href="/css/navbar_style.css">
+        <link rel="stylesheet" href="/css/footer_style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div id="navbar_div"></div>
+        </header>
+
+        <main>
+            <div class="content_container">
+                <div class="content_title">
+                    <h1>NEW RANGER SUITS!</h1>
+                    <svg class="divider-svg" viewBox="0 0 600 40">
+                        <line class="divider-line left-line" x1="60" y1="20" x2="280" y2="20" />
+
+                        <line class="divider-line right-line" x1="320" y1="20" x2="540" y2="20" />
+
+                        <rect class="divider-diamond" x="290" y="10" width="20" height="20" />
+                    </svg>
+                    <p>June 6, 2026</p>
+                </div>
+
+                <div class="content">
+                    <p>
+                        Hello Rangers, <br/>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error iusto officia molestias consectetur minus repellendus
+                        est suscipit recusandae libero, nemo laboriosam deleniti tempora illum officiis. Aspernatur incidunt voluptas nostrum
+                        animi officia, consequatur voluptate nihil mollitia deleniti magnam est expedita. Accusantium?
+                    </p>
+
+                    <figure class="post-image">
+                        <img src="/assets/Image/Week2.png" alt="New rangers posing for the camera">
+
+                        <figcaption>New Rangers Preview</figcaption>
+                    </figure>
+
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora animi obcaecati iure, provident facere ipsam eligendi,
+                        vero suscipit fugiat eius ipsum error consectetur quam nostrum dolorum voluptate distinctio consequatur! Perspiciatis
+                        saepe corrupti atque omnis quae mollitia reiciendis magnam ut maxime! Autem, laborum ut vel temporibus magnam tempore
+                        quae quia enim, totam quod voluptates omnis aspernatur maxime animi amet nihil doloribus optio? Assumenda reprehenderit
+                        quisquam dicta eius atque enim, est obcaecati perspiciatis exercitationem quis, eaque deleniti optio.
+                    </p>
+
+                    <p>Additions:</p>
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, neque.</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, neque.</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, neque.</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, neque.</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, neque.</li>
+                    </ul>
+
+                    <p>Bug Fixes:</p>
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, neque.</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, neque.</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, neque.</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, neque.</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, neque.</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div id="footer_content"></div>
+        </footer>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/94c96a59cb.js" crossorigin="anonymous"></script>
+</html>
+
+<script>
+    fetch("/navbar.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("navbar_div").innerHTML = data;
+        });
+
+    fetch("/footer.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("footer_content").innerHTML = data;
+        });
+</script>

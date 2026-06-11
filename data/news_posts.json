@@ -1,24 +1,31 @@
 [
   {
-    "date": "June 6, 2026",
-    "title": "GOKAI BLACK UPDATE",
-    "description": "A menacing ship approaches the island. Give no quarter, for this be mutiny. Dead men tell no tales, so live and make it showy.",
-    "link": "post-1.html",
-    "img_cover": "assets/Image/GokaiBlack.png"
+    "date": "June 5, 2026",
+    "title": "THE DREAM WORLD",
+    "description": "A nightmare monster is terrorizing people in their sleep. Your mission, infiltrate their dream and stop it. Good luck.",
+    "link": "/postings/dream_world.html",
+    "img_cover": "/assets/Image/Week3.png"
   },
   {
-    "date": "May 28, 2026",
-    "title": "Development Blog: Ranger Combat",
-    "description": "A closer look at how Ranger weapons and abilities work.",
-    "link": "post-2.html",
-    "img_cover": "assets/Image/GokaiBlack.png"
+    "date": "May 15, 2026",
+    "title": "NEW RANGERS SUITS!",
+    "description": "New suits, UI improvements, and some bug fixes.",
+    "link": "/postings/new_suits.html",
+    "img_cover": "/assets/Image/Week2.png"
+  },
+  {
+    "date": "May 6, 2026",
+    "title": "GOKAI BLACK UPDATE",
+    "description": "A menacing ship approaches the island. Give no quarter, for this be mutiny. Dead men tell no tales, so live and make it showy.",
+    "link": "/postings/gokai_black.html",
+    "img_cover": "/assets/Image/Week1.png"
   },
   {
     "date": "May 15, 2026",
     "title": "Version 0.4.1 Update",
-    "description": "New suits, UI improvements, and mission updates.",
+    "description": "New vehicles, quality of life improvements, and mission updates.",
     "link": "post-3.html",
-    "img_cover": "assets/Image/GokaiBlack.png"
+    "img_cover": "assets/Image/bike.png"
   },
   {
     "date": "May 15, 2026",

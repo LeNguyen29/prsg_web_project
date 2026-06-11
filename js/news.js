@@ -1,6 +1,6 @@
 var posts = [];
 
-const postsPerPage = 3;
+const postsPerPage = 4;
 let currentPage = 1;
 
 const newsList = document.getElementById("news_list");
