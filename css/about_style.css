@@ -14,7 +14,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: sans-serif;
+    font-family: "sansation", sans-serif;
 }
 
 .divider-svg {

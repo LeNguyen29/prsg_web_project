@@ -1,3 +1,13 @@
+:root {
+    --gold-border: rgb(207, 176, 1) 5px solid;
+    --gold-divider-color: #e4a915;
+    --gold-text-color: #FFBF00;
+    --background-tint: linear-gradient(
+        rgba(0, 0, 0, 0.65), 
+        rgba(0, 0, 0, 0.45)
+    );
+}
+
 .page_title {
     display: flex;
     flex-direction: column;
@@ -6,4 +16,34 @@
 
     margin-top: 90px;
     padding: 30px 0;
+    width: 100%;
+    height: 600px;
+}
+
+.page_title {
+    background-image: var(--background-tint), url(/assets/Image/Ranger_Lineup.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.page_title h1 {
+    color: var(--gold-text-color);
+    font-size: 64pt;
+    font-weight: bold;
+    margin: 0;
+}
+
+.page_title p {
+    color: white;
+    font-size: 26pt;
+    font-family: "Sansation", sans-serif;
+    width: 20em;
+    text-align: center;
+    margin: 50px 10px;
+}
+
+.page_title #join_btn {
+    padding: 10px 20px;
+    font-size: 20pt;
+    font-family: "Sansation", sans-serif;
 }
