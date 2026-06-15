@@ -6,11 +6,11 @@
     <title>PRSG - Community</title>
     <link rel="icon" type="image/x-icon" href="assets/FS_Icon.webp">
 
-    <link rel="stylesheet" href="css/community_style.css">
-    <link rel="stylesheet" href="css/navbar_style.css">
-    <link rel="stylesheet" href="css/footer_style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/navbar_style.css">
+    <link rel="stylesheet" href="css/footer_style.css">
+    <link rel="stylesheet" href="css/community_style.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,18 +24,37 @@
     <main>
         <section id="page_title" class="page_title">
             <h1>COMMUNITY</h1>
-            <p>Come join a thriving community of Tokusatsu enjoyers</p>
-            <button id="join_btn" type="button" class="btn btn-primary">
+            <p>Connect with a growing community united by the love of tokusatsu.</p>
+            <a id="join_btn" type="button" class="btn btn-primary" target="_blank"
+                href="https://discord.gg/4AddNtrVyC" 
+            >
                 Join our Discord server
-            </button>
+            </a>
         </section>
 
-        <section class="img_gallery">
-            <h2>COMMUNITY GALLERY</h2>
-            <div>
-                
-            </div>
+        <section class="gallery_section">
+            <h2>Community Gallery</h2>
+
+            <nav class="gallery_pagination">
+                <ul id="pagination_top" class="pagination"></ul>
+            </nav>
+
+            <div id="gallery_grid" class="gallery_grid"></div>
+
+            <nav class="gallery_pagination">
+                <ul id="pagination_bottom" class="pagination"></ul>
+            </nav>
         </section>
+
+        <div class="modal fade" id="imageModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content bg-dark">
+                <div class="modal-body">
+                    <img id="modalImage" src="" alt="Full size preview" class="modal_img">
+                </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer>
@@ -44,6 +63,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/94c96a59cb.js" crossorigin="anonymous"></script>
+    <script src="/js/community.js"></script>
 </body>
 </html>
 

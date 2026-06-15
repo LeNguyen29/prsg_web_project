@@ -15,11 +15,16 @@
                             rgb(0, 0, 0), 
                             rgba(0, 0, 0, 0)
                        );
+    --page-background-color: #011f32;
 }
 
 main {
     margin-top: 85px;
-    font-family: "sansation", sans-serif;
+}
+
+body {
+    font-family: "Sansation", sans-serif;
+    background-color: var(--page-background-color) !important;
 }
 
 #game_logo {

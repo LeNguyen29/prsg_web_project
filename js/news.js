@@ -16,15 +16,15 @@ function displayPosts() {
 
   currentPosts.forEach(post => {
     newsList.innerHTML += `
-      <article class="news_card">
+      <a class="news_card" href="${post.link}">
         <img src="${post.img_cover}">
         <div class="card_txt">
             <p class="news_date">${post.date}</p>
             <h2 class="news_title">${post.title}</h2>
             <p class="news_desc">${post.description}</p>
-            <a class="read_more_link" href="${post.link}">Read More</a>
+            <span class="read_more">Read More</span>
         </div>
-      </article>
+      </a>
     `;
   });
 }
@@ -58,7 +58,7 @@ function goToPage(page) {
 
 async function loadPosts() {
 
-  const response = await fetch("data/news_posts.json");
+  const response = await fetch("/data/news_posts.json");
 
   posts = await response.json();
 
