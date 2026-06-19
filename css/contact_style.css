@@ -1,0 +1,70 @@
+:root {
+    --page-background-color: #011f32;
+    --gold-border-color: rgb(207, 176, 1);
+    --gold-text-color: #FFBF00;
+    --gold-text-hover-color: #daaf2c;
+    --gold-text-clicked-color: #5c4500;
+}
+
+body {
+    background-color: var(--page-background-color);
+    font-family: "Sansation", sans-serif;
+}
+
+main {
+    background: linear-gradient(
+        rgb(5, 69, 137),
+        rgb(5, 34, 66)
+    );
+
+    margin-top: 100px;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact_card {
+    background-color: rgb(2, 38, 59);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: white;
+    padding: 50px 40px;
+}
+
+.contact_info h1 {
+    width: 80%;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.contact_info p {
+    width: 80%;
+    font-size: 20px;
+}
+
+.contact_info a {
+    color: var(--gold-text-color);
+}
+
+.contact_info a:hover {
+    color: var(--gold-text-hover-color);
+}
+
+.contact_info a:active {
+    color: var(--gold-text-clicked-color);
+}
+
+#contact_email {
+    font-weight: bold;
+    font-style: italic;
+    color: var(--gold-text-color);
+}
+
+.studio_logo {
+    width: 250px;
+    height: auto;
+}
