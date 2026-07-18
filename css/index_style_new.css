@@ -1,0 +1,266 @@
+:root {
+    --gold-border-color: rgb(207, 176, 1) 5px solid;
+    --gold-divider-color: #e4a915;
+    --background-tint-left: linear-gradient(
+                            90deg,
+                            rgb(0, 0, 0), 
+                            rgba(0, 0, 0, 0)
+                       );
+    --background-tint-right: linear-gradient(
+                            90deg,
+                            rgba(0, 0, 0, 0),
+                            rgb(0, 0, 0)
+                       );
+    --background-tint: linear-gradient(
+                            rgb(0, 0, 0), 
+                            rgba(0, 0, 0, 0)
+                       );
+    --page-background-color: #011f32;
+}
+
+/* main {
+    margin-top: 80px;
+} */
+
+body {
+    font-family: "Sansation", sans-serif;
+    background-color: var(--page-background-color) !important;
+}
+
+#home_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+
+    min-height: 90vh;
+}
+
+.section_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.section_content .play_btn {
+    font-size: 16pt;
+}
+
+.section_content .game_logo {
+    max-width: 400px;
+    height: auto;
+    padding: 0 20px;
+}
+
+.section_content .game_desc {
+    padding: 10px;
+
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+    color: white;
+}
+
+.video_wrapper {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+
+    padding-bottom: 56.25%; /* Embed video are strictly 16:9 so this create a ratio box */
+    height: 0;
+    overflow: hidden;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video_wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.section_breaker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    border-top: var(--gold-border-color);
+}
+
+/* Setting the background */
+.section_breaker
+{
+    background:
+        linear-gradient(135deg,
+            transparent 0%,
+            rgba(0, 255, 120, 0.45) 8%,
+            rgba(255, 255, 0, 0.45) 18%,
+            rgba(0, 120, 255, 0.45) 30%,
+            rgba(0, 0, 0, 0.75) 48%,
+            rgba(255, 34, 174, 0.45) 60%,
+            rgba(255, 0, 0, 0.75) 75%,
+            transparent 100%
+        ),
+        repeating-linear-gradient(135deg,
+            rgba(255, 255, 255, 0.18) 0px,
+            rgba(255, 255, 255, 0.18) 2px,
+            transparent 2px,
+            transparent 18px
+        ),
+        repeating-linear-gradient(135deg,
+            rgba(0, 0, 0, 0.35) 0px,
+            rgba(0, 0, 0, 0.35) 4px,
+            transparent 4px,
+            transparent 40px
+        ),
+        #050505;
+
+    background-blend-mode: screen, overlay, normal;
+    filter: saturate(1.4) contrast(1.2);
+}
+
+.section_breaker p {
+    margin: 0;
+    
+    text-align: center;
+    color: var(--gold-divider-color);
+    font-weight: bold;
+    font-size: 30px;
+    font-style: italic;
+}
+
+.horizontal_line {
+    background-color: white;
+    height: 5px;
+    width: 500px;
+}
+
+.divider-svg {
+    width: 100%;
+    height: 40px;
+}
+
+/* Shared line styling */
+.divider-line {
+    stroke: var(--gold-divider-color);
+    stroke-width: 4;
+    stroke-linecap: round;
+}
+
+/* Diamond styling */
+.divider-diamond {
+    fill: var(--gold-divider-color);
+    transform: rotate(45deg);
+    transform-origin: center;
+}
+
+.background_tint {
+    /* Gradient background */
+    background-color: linear-gradient(
+        90deg,
+        rgba(255, 0, 0),
+        rgba(0, 0, 255)
+    );
+}
+
+.desc_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    height: 70vh;
+    border-top: var(--gold-border-color);
+    background-size: cover; /*  Stretches the image to fill the entire container. */
+    background-repeat: no-repeat;
+}
+
+.desc_card_left {
+    padding-right: 45%;
+}
+
+.desc_card_right {
+    padding-left: 45%;
+}
+
+.desc_card_center {
+    align-items: center;
+    text-align: center;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.desc_card h2 {
+    font-weight: bolder;
+    color: white;
+    font-size: 60px;
+    margin-bottom: 50px;
+}
+
+.desc_card h3 {
+    font-weight: bold;
+    color: #FFBF00;
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+.desc_card p {
+    color: white;
+    font-size: 20px;
+}
+
+#story_card {
+    background-image: var(--background-tint-left), 
+        url("../assets/Image/RangerSentry.png");
+}
+
+#morph_card {
+    background-image: var(--background-tint-right),
+        url("../assets/Image/Zeo_Rollcall.png");
+}
+
+#explore_card {
+    background-image: var(--background-tint-left),
+        url("../assets/Image/Zord_Graveyard.png");
+}
+
+#combat_card {
+    background-image: var(--background-tint-right),
+        url("../assets/Image/DT_fight.png");
+}
+
+#cosmetics_card {
+    background-image: var(--background-tint),
+        url("../assets/Image/Skin.png");
+}
+
+@media screen and (max-width: 480px) {
+    .video_wrapper {
+        display: none;
+    }
+
+    .bg_image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: absolute;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+    
+        background-image: url(../assets/Image/Megazord_Mobile.webp);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover; /* Fills container, crops if necessary */
+    }
+}
