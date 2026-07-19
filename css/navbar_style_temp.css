@@ -4,8 +4,15 @@
 }
 
 .navbar {
-    /* padding: 10px 40px; */
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 40px;
     background-color: #001727;
+    border-radius: 0;
+}
+
+.navbar-nav {
+    gap: 2rem;
 }
 
 .navbar .nav-link {
@@ -25,10 +32,3 @@
 .navbar .nav-link.active {
     color: gold;
 }
-
-/* For debugging */
-/* 
-    * {
-        outline: 1px solid red;
-    } 
-*/
