@@ -13,13 +13,10 @@
                        );
     --background-tint: linear-gradient(
                             rgb(0, 0, 0), 
-                            rgba(0, 0, 0, 0)
+                            rgba(0, 0, 0, 0.31),
+                            rgb(0,0,0)
                        );
     --page-background-color: #011f32;
-}
-
-main {
-    margin-top: 85px;
 }
 
 body {
@@ -27,21 +24,7 @@ body {
     background-color: var(--page-background-color) !important;
 }
 
-#game_logo {
-    width: 100%;
-    height: auto;
-}
-
-#play_btn {
-    margin-top: 20px;
-    padding: 10px 20px;
-    border-radius: 20px;
-
-    font-weight: bold;
-    font-size: 30px;
-}
-
-#game_desc {
+#home_section {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -53,30 +36,46 @@ body {
     min-height: 90vh;
 }
 
-#game_desc img {
-    max-width: 400px;
+.play_btn {
+    font-size: 16pt;
 }
 
-#game_desc p {
-    width: 50%;
+.game_logo {
+    max-width: 400px;
+    height: auto;
+    padding: 0 20px;
+}
+
+.game_desc {
     padding: 10px;
 
     text-align: center;
-    font-size: 35px;
+    font-size: 25pt;
     font-weight: bold;
     color: white;
 }
 
-.video_bg {
+.video_wrapper {
     position: absolute;
     min-width: 100%;
     min-height: 100%;
     z-index: -1;
 
-    /* Centering the video */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    padding-bottom: 56.25%; /* Embed video are strictly 16:9 so this create a ratio box */
+    height: 0;
+    overflow: hidden;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video_wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .section_breaker {
@@ -86,6 +85,7 @@ body {
     flex-direction: column;
     padding: 20px;
     border-top: var(--gold-border-color);
+    border-bottom: var(--gold-border-color);
 }
 
 /* Setting the background */
@@ -126,7 +126,7 @@ body {
     text-align: center;
     color: var(--gold-divider-color);
     font-weight: bold;
-    font-size: 30px;
+    font-size: 20pt;
     font-style: italic;
 }
 
@@ -164,72 +164,84 @@ body {
     );
 }
 
+/* CARDS */
 .desc_card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 30px;
+    /* padding: 30px; */
     height: 70vh;
-    border-top: var(--gold-border-color);
-    background-size: cover; /*  Stretches the image to fill the entire container. */
-    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden; 
+    border-bottom: var(--gold-border-color);
+}
+
+.card_bg_image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* Crops and scales nicely like background-size: cover */
+    z-index: -1;            /* Pushes the image behind the text content */
+    pointer-events: none;   /* Allows users to click or select text through the image */
 }
 
 .desc_card_left {
-    padding-right: 45%;
+    background: var(--background-tint-left);
 }
 
 .desc_card_right {
-    padding-left: 45%;
+    background: var(--background-tint-right);
 }
 
 .desc_card_center {
     align-items: center;
     text-align: center;
-    padding-left: 20%;
-    padding-right: 20%;
+    
+    background: var(--background-tint);
 }
 
 .desc_card h2 {
     font-weight: bolder;
     color: white;
-    font-size: 60px;
-    margin-bottom: 50px;
+    font-size: 32pt;
+    /* margin-bottom: 50px; */
 }
 
 .desc_card h3 {
     font-weight: bold;
     color: #FFBF00;
-    font-size: 30px;
-    margin-bottom: 50px;
+    font-size: 20pt;
+    /* margin-bottom: 50px; */
 }
 
 .desc_card p {
     color: white;
-    font-size: 20px;
+    font-size: 16pt;
+    max-width: 60ch;
 }
 
-#story_card {
-    background-image: var(--background-tint-left), 
-        url("../assets/Image/RangerSentry.png");
-}
+@media screen and (max-width: 900px) {
+    .video_wrapper {
+        display: none;
+    }
 
-#morph_card {
-    background-image: var(--background-tint-right),
-        url("../assets/Image/Zeo_Rollcall.png");
-}
+    .bg_image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-#explore_card {
-    background-image: var(--background-tint-left),
-        url("../assets/Image/Zord_Graveyard.png");
-}
+        position: absolute;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+    
+        background-image: url(../assets/Image/Megazord_Mobile.webp);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover; /* Fills container, crops if necessary */
+    }
 
-#combat_card {
-    background-image: var(--background-tint-right),
-        url("../assets/Image/DT_fight.png");
-}
-
-#cosmetics_card {
-    background-image: var(--background-tint),
-        url("../assets/Image/Skin.png");
+    .desc_card {
+        text-align: center;
+        background: var(--background-tint);
+    }
 }
