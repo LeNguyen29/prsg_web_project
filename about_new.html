@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PRSG - About</title>
+        <link rel="icon" type="image/x-icon" href="assets/Logo/FS_Icon.webp">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/navbar_style.css">
+        <link rel="stylesheet" href="css/footer_style.css">
+        <link rel="stylesheet" href="css/about_style_new.css">
+    </head>
+
+    <body>
+        <header>
+            <div id="navbar"></div>
+        </header>
+
+        <main>
+            <section id="page_title">
+                <div class="container-fluid py-4 d-flex align-items-center justify-content-center">
+                    <h1>ABOUT THE GAME</h1>
+                </div>
+            </section>
+
+            <section id="game_goal">
+                <div class="container-fluid desc_card
+                            d-flex flex-column align-items-center justify-content-center">
+                    <div class="row py-3 d-flex flex-column align-items-center justify-content-center">
+                        <div class="col card_content">
+                            <h2>Welcome To PRSG</h2>
+                            <svg class="divider-svg" viewBox="0 0 600 40">
+                                <line class="divider-line left-line" x1="100" y1="20" x2="280" y2="20" />
+        
+                                <line class="divider-line right-line" x1="320" y1="20" x2="500" y2="20" />
+        
+                                <rect class="divider-diamond" x="290" y="10" width="20" height="20" />
+                            </svg>
+                        </div>
+
+                        <div class="col card_content mt-3">
+                            <p>
+                                PRSG is a fan made MMORPG game on Roblox that aims to deliver the most authentic premium Power Rangers
+                                experience that it can. The game takes inspiration from various RPG games and
+                                features an open world map with story driven quests.
+                            </p>
+                        </div>
+                    </div>
+
+                    <img src="assets/Image/MainGame.png" class="card_bg_image">
+                </div>
+            </section>
+            
+            <section id="developed_by">
+                <div class="container-fluid desc_card
+                            d-flex flex-column align-items-center justify-content-center">
+                    <div class="row py-3 d-flex flex-column align-items-center justify-content-center">
+                        <div class="col card_content">
+                            <h2>Developed by Fragmented Studios</h2>
+                            <svg class="divider-svg" viewBox="0 0 600 40">
+                                <line class="divider-line left-line" x1="0" y1="20" x2="280" y2="20" />
+        
+                                <line class="divider-line right-line" x1="320" y1="20" x2="600" y2="20" />
+        
+                                <rect class="divider-diamond" x="290" y="10" width="20" height="20" />
+                            </svg>
+                        </div>
+
+                        <div class="col card_content my-5">
+                            <p>
+                                Development began in 2021 as small game project, driven by a group of passionate fans who have long
+                                dream of an RPG style
+                                Power Rangers game. Since then, the project has went through numerous challenges, along with multiple
+                                iterations
+                                and reimaginings, until a clear creative vision is reached that defines the game today.
+                            </p>
+                        </div>
+                        
+                        <div class="col card_content">
+                            <img id="studio_logo" src="assets/Logo/Fragmented_Studio_Logo.png" alt="Studio Full Logo">
+                        </div> 
+                    </div>               
+                    
+                    <img src="assets/Image/Sky_Ship.png" class="card_bg_image">
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div id="footer_content"></div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/94c96a59cb.js" crossorigin="anonymous"></script>
+    </body>
+
+    <script src="js/about.js"></script>
+</html>
+
+<script>
+    fetch("navbar.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("navbar").innerHTML = data;
+        });
+
+    fetch("footer.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("footer_content").innerHTML = data;
+        });
+</script>
