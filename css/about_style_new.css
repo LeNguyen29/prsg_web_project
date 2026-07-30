@@ -116,7 +116,7 @@ body {
     position: relative;
     overflow: hidden;
     border-bottom: var(--gold-border);
-    background: var(--background-tint-2);
+    /* background: var(--background-tint-2); */
 }
 
 .showcase_slide {
@@ -131,7 +131,8 @@ body {
 
     transition: opacity 1s ease-in-out;
 
-    margin: 0 1rem;
+    /* margin: 0 1rem; */
+    padding: 5rem;
 }
 
 .showcase_slide.active {
@@ -182,6 +183,14 @@ body {
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
+}
+
+.slideshow_btn:hover {
+    background: rgba(66, 66, 66, 0.5);
+}
+
+.slideshow_btn:active {
+    background: rgb(3, 3, 3);
 }
 
 #prevBtn {
