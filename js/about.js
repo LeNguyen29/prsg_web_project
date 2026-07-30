@@ -1,29 +1,28 @@
-const slides = document.querySelectorAll(".slide");
-const nextBtn = document.querySelector("#nextBtn");
-const prevBtn = document.querySelector("#prevBtn");
+var slides = $(".showcase_slide");
+var prevBtn = $("#prevBtn");
+var nextBtn = $("#nextBtn");
 
 let currentSlide = 0;
 
-function showSlide(index) {
-  slides.forEach(slide => {
-    slide.classList.remove("active");
+function showSlide(slide_index) {
+  slides.each(function(index, obj) {
+    $(obj).removeClass("active");
   });
 
-  if (index >= slides.length) {
+  if (slide_index >= slides.length)
     currentSlide = 0;
-  } else if (index < 0) {
+  else if (slide_index < 0)
     currentSlide = slides.length - 1;
-  } else {
-    currentSlide = index;
-  }
+  else
+    currentSlide = slide_index;
 
-  slides[currentSlide].classList.add("active");
+  slides.eq(currentSlide).addClass("active");
 }
 
-nextBtn.addEventListener("click", () => {
-  showSlide(currentSlide + 1);
+nextBtn.on("click", () => {
+    showSlide(currentSlide + 1);
 });
 
-prevBtn.addEventListener("click", () => {
-  showSlide(currentSlide - 1);
+prevBtn.on("click", () => {
+    showSlide(currentSlide - 1);
 });
