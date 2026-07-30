@@ -6,6 +6,11 @@
         rgba(0, 0, 0, 0.65), 
         rgba(0, 0, 0, 0.45)
     );
+    --background-tint-2: linear-gradient(
+        rgba(0, 0, 0, 0.6), 
+        rgba(0, 0, 0, 0.85),
+        rgba(0, 0, 0, 0.6)
+    );
     --page-background-color: #011f32;
 }
 
@@ -76,7 +81,7 @@ body {
 }
 
 .desc_card {
-    height: 70vh;
+    min-height: 70vh;
     position: relative;
     overflow: hidden;
     border-bottom: var(--gold-border);
@@ -104,6 +109,95 @@ body {
     align-items: center;
 }
 
+/* FEATURES SHOWCASE SECTION */
+.showcase_slideshow {
+    min-height: 70vh;
+    position: relative;
+    overflow: hidden;
+    border-bottom: var(--gold-border);
+    background: var(--background-tint-2);
+}
+
+.showcase_slide {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity 1s ease-in-out;
+
+    margin: 0 1rem;
+}
+
+.showcase_slide.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.showcase_slide .video_wrapper {
+    aspect-ratio: 16/9;
+    width: 100%;
+    height: auto;
+}
+
+.video_wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 5px;
+}
+
+.showcase_slide .text_section h2 {
+    color: var(--gold-text-color);
+    font-size: 40pt;
+    font-weight: bold;
+    margin: 0;
+}
+
+.showcase_slide .text_section h3 {
+    color: white;
+    font-size: 30pt;
+    font-weight: bold;
+}
+
+.showcase_slide .text_section p {
+    color: rgb(220, 220, 220);
+    font-size: 16pt;
+}
+
+.slideshow_btn {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 3rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+#prevBtn {
+    left: 20px;
+}
+
+#nextBtn {
+    right: 20px;
+}
+
+/* MOBILE SHOWCASE */
+
+
+#mobile_showcase {
+    display: none;
+}
+
 .card_bg_image {
     position: absolute;
     top: 0;
@@ -118,5 +212,21 @@ body {
 @media screen and (max-width: 900px) {
     body {
         margin-top: 4.2rem;
+    }
+    
+    #features_showcase {
+        display: none;
+    }
+
+    #mobile_showcase {
+        display: block;
+    }
+
+    .section_title h2 {
+        color: var(--gold-text-color);
+        font-weight: bold;
+        font-size: 20pt;
+        text-align: center;
+        margin: 0;
     }
 }
