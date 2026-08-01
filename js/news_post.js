@@ -47,5 +47,17 @@ $(function () {
                 $(this).attr("href", basePath + href);
             }
         });
+
+        $("#footer_content img").each(function () {
+            const src = $(this).attr("src");
+
+            if (
+                src &&
+                !src.startsWith("http") &&
+                !src.startsWith("/")
+            ) {
+                $(this).attr("src", basePath + src);
+            }
+        });
     });
 });
