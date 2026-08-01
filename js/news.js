@@ -1,68 +1,133 @@
 var posts = [];
+var newsCardTemplate = "";
 
-const postsPerPage = 4;
-let currentPage = 1;
+const POSTS_PER_PAGE = 4;
+const NEWSCARD_TEMPLATE_PATH = "templates/news_card_template.html";
+const POSTS_JSON_PATH = "data/news_posts.json";
 
-const newsList = document.getElementById("news_list");
-const paginationTop = document.getElementById("pagination_top");
-const paginationBottom = document.getElementById("pagination_bottom");
+const newsList = $("#news_list");
+const paginationTop = $("#pagination_top");
+const paginationBottom = $("#pagination_bottom");
 
-function displayPosts() {
-  newsList.innerHTML = "";
+var currentPage = 1;
 
-  const start = (currentPage - 1) * postsPerPage;
-  const end = start + postsPerPage;
-  const currentPosts = posts.slice(start, end);
+async function loadPosts() {
+  try {
+      const [postsResponse, templateResponse] = await Promise.all([
+          fetch(POSTS_JSON_PATH),
+          fetch(NEWSCARD_TEMPLATE_PATH)
+      ]);
 
-  currentPosts.forEach(post => {
-    newsList.innerHTML += `
-      <a class="news_card" href="${post.link}">
-        <img src="${post.img_cover}">
-        <div class="card_txt">
-            <p class="news_date">${post.date}</p>
-            <h2 class="news_title">${post.title}</h2>
-            <p class="news_desc">${post.description}</p>
-            <span class="read_more">Read More</span>
-        </div>
-      </a>
-    `;
-  });
-}
+      posts = await postsResponse.json();
+      newsCardTemplate = await templateResponse.text();
 
-function displayPagination() {
-  paginationTop.innerHTML = "";
-  paginationBottom.innerHTML = "";
-
-  const pageCount = Math.ceil(posts.length / postsPerPage);
-
-  for (let i = 1; i <= pageCount; i++) {
-
-    const paginationButton = `
-      <li class="page-item ${i === currentPage ? "active" : ""}">
-        <button class="page-link" onclick="goToPage(${i})">
-          ${i}
-        </button>
-      </li>
-    `;
-
-    paginationTop.innerHTML += paginationButton;
-    paginationBottom.innerHTML += paginationButton;
+      displayPosts();
+      displayPagination();
+  }
+  catch (err) {
+      console.error("Something went wrong!\n", err);
   }
 }
 
-function goToPage(page) {
-  currentPage = page;
-  displayPosts();
-  displayPagination();
+function displayPosts() {
+  newsList.empty();
+
+  const start = (currentPage - 1) * POSTS_PER_PAGE;
+  const end = start + POSTS_PER_PAGE;
+
+  posts.slice(start, end).forEach(post => {
+      const newsCard = $(newsCardTemplate).clone();
+
+      newsCard.find(".card_img img")
+          .attr("src", post.img_cover)
+          .attr("alt", post.title);
+
+      newsCard.find(".title_txt").text(post.title);
+      newsCard.find(".date_txt").text(post.date);
+      newsCard.find(".card_desc").text(post.description);
+      newsCard.find(".card_link").attr("href", post.link);
+
+      newsList.append(newsCard);
+  });
 }
 
-async function loadPosts() {
+function createPageItem(pageNumber) {
+  const li = $("<li>")
+      .addClass("page-item")
+      .toggleClass("active", pageNumber === currentPage);
 
-  const response = await fetch("/data/news_posts.json");
+  const link = $("<a>")
+      .addClass("page-link")
+      .attr("href", "#")
+      .text(pageNumber)
+      .on("click", (e) => {
+          e.preventDefault();
+          goToPage(pageNumber);
+      });
 
-  posts = await response.json();
+  li.append(link);
 
-  console.log(posts);
+  return li;
+}
+
+function displayPagination() {
+  const pageCount = Math.ceil(posts.length / POSTS_PER_PAGE);
+
+  paginationTop.empty();
+  paginationBottom.empty();
+  
+  // Previous button
+  const prev = $(`
+      <li class="page-item ${currentPage === 1 ? "disabled" : ""}">
+          <a class="page-link" href="#">
+              <span>&laquo;</span>
+          </a>
+      </li>
+  `);
+
+  prev.find("a").on("click", (e) => {
+      e.preventDefault();
+      if (currentPage > 1)
+          goToPage(currentPage - 1);
+  });
+
+  paginationTop.append(prev.clone(true));
+  paginationBottom.append(prev);
+  
+  // Number buttons
+  for (let i = 1; i <= pageCount; i++) {
+      paginationTop.append(createPageItem(i));
+      paginationBottom.append(createPageItem(i));
+  }
+
+  // Next button
+  const next = $(`
+      <li class="page-item ${currentPage === pageCount ? "disabled" : ""}">
+          <a class="page-link" href="#">
+              <span>&raquo;</span>
+          </a>
+      </li>
+  `);
+
+  next.find("a").on("click", (e) => {
+      e.preventDefault();
+
+      if (currentPage < pageCount)
+          goToPage(currentPage + 1);
+  });
+
+  paginationTop.append(next.clone(true));
+  paginationBottom.append(next);
+
+}
+
+function goToPage(page) {
+  page_limit = Math.ceil(posts.length / POSTS_PER_PAGE);
+  
+  if (page < 1 || page > page_limit)
+      return;
+
+  currentPage = page;
 
   displayPosts();
   displayPagination();
