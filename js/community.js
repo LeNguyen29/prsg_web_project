@@ -94,7 +94,7 @@ function showFullImage(src, alt) {
 
 async function loadImageList() {
     try {
-        const response = await $.getJSON("/data/gallery.json");
+        const response = await $.getJSON("data/gallery.json");
 
         images = response;
 
