@@ -1,10 +1,9 @@
 :root {
     --gold-border: rgb(207, 176, 1);
-    --gold-divider-color: #e4a915;
     --gold-text-color: #FFBF00;
     --background-tint: linear-gradient(
-        rgba(0, 0, 0, 0.65), 
-        rgba(0, 0, 0, 0.45)
+        rgba(0, 0, 0, 0.7), 
+        rgba(0, 0, 0, 0.5)
     );
     --page-background-color: #011f32;
 }
@@ -14,62 +13,65 @@ body {
     background-color: var(--page-background-color) !important;
 }
 
-/* Page Title Section */
-.page_title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    margin-top: 90px;
-    padding: 30px 0;
+.card_bg_image {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 600px;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none; 
 }
 
+/* Page Title Section */
 .page_title {
-    background-image: var(--background-tint), url(/assets/Image/Ranger_Lineup.png);
-    background-repeat: no-repeat;
-    background-size: cover;
+    margin-top: 5rem;
+    min-height: 60vh;
+    position: relative;
+    overflow: hidden;
+    background: var(--background-tint);
+    border-bottom: 5px solid var(--gold-border);
+    text-align: center;
 }
 
 .page_title h1 {
     color: var(--gold-text-color);
-    font-size: 64pt;
+    font-size: 42pt;
     font-weight: bold;
     margin: 0;
 }
 
 .page_title p {
     color: white;
-    font-size: 26pt;
-    width: 20em;
-    text-align: center;
-    margin: 50px 10px;
+    font-size: 20pt;
+    max-width: 40ch;
 }
 
-.page_title #join_btn {
-    padding: 10px 20px;
+.page_title .join_btn {
     font-size: 20pt;
 }
 
 /* Gallery Section */
-.gallery_section {
-    padding: 60px 20px;
+.gallery_container {
     background-color: var(--page-background-color);
+    border-bottom: 5px solid var(--gold-border);
 }
 
-.gallery_section h2 {
+.gallery_container h2 {
     text-align: center;
     color: white;
     font-size: 35pt;
-    margin-bottom: 40px;
+}
+
+.gallery_container p {
+    color: rgb(155, 155, 155);
 }
 
 .gallery_grid {
     width: 100%;
-    margin: 0 auto;
-    padding: 20px;
+    margin: 0;
+    border-radius: 5px;
     background-color: #001725;
 
     display: grid;
@@ -80,7 +82,7 @@ body {
 .gallery_item {
     padding: 0;
     /* border: none; */
-    border-radius: 6px;
+    border-radius: 5px;
     border: 2px solid var(--gold-divider-color);
 
     background: none;
@@ -101,14 +103,18 @@ body {
     transform: scale(1.08);
 }
 
+.modal_img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* PAGINATION */
+
 .gallery_pagination {
     display: flex;
     justify-content: center;
     margin: 20px;
-}
-
-.pagination {
-    margin: 0;
 }
 
 .pagination .page-link {
@@ -129,8 +135,7 @@ body {
     color: black;
 }
 
-.modal_img {
-    width: 100%;
-    height: auto;
-    display: block;
+.pagination .page-item.disabled .page-link {
+    background-color: rgb(35, 35, 35);
+    color: black;
 }

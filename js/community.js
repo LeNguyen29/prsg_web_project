@@ -1,74 +1,126 @@
-var images = [];
+let images = [];
 
 const imagesPerPage = 9;
 let currentPage = 1;
 
-const galleryGrid = document.getElementById("gallery_grid");
-
-var pagination_bottom = document.getElementById("pagination_bottom");
-var pagination_top = document.getElementById("pagination_top");
-
-const modalImage = document.getElementById("modalImage");
+const $galleryGrid = $("#gallery_grid");
+const $paginationBottom = $("#pagination_bottom");
+const $paginationTop = $("#pagination_top");
+const $modalImage = $("#modalImage");
 
 function displayImages() {
-  galleryGrid.innerHTML = "";
+    $galleryGrid.empty();
 
-  const start = (currentPage - 1) * imagesPerPage;
-  const end = start + imagesPerPage;
-  const currentImages = images.slice(start, end);
+    const start = (currentPage - 1) * imagesPerPage;
+    const end = start + imagesPerPage;
+    const currentImages = images.slice(start, end);
 
-  currentImages.forEach(image => {
-    galleryGrid.innerHTML += `
-      <button class="gallery_item" data-bs-toggle="modal" data-bs-target="#imageModal"
-        onclick="showFullImage('${image.src}', '${image.alt}')">
-        <img src="${image.src}" alt="${image.alt}">
-      </button>
-    `;
-  });
+    $.each(currentImages, function (_, image) {
+        $galleryGrid.append(`
+            <button class="gallery_item"
+                    data-bs-toggle="modal"
+                    data-bs-target="#imageModal"
+                    data-src="${image.src}"
+                    data-alt="${image.alt}">
+                <img src="${image.src}" alt="${image.alt}">
+            </button>
+        `);
+    });
 }
 
 function displayPagination() {
-  pagination_bottom.innerHTML = "";
-  pagination_top.innerHTML = "";
+    $paginationBottom.empty();
+    $paginationTop.empty();
 
-  const pageCount = Math.ceil(images.length / imagesPerPage);
+    const pageCount = Math.ceil(images.length / imagesPerPage);
 
-  for (let i = 1; i <= pageCount; i++) {
-    pagination_btn = `
-      <li class="page-item ${i === currentPage ? "active" : ""}">
-        <button class="page-link" onclick="goToGalleryPage(${i})">
-          ${i}
-        </button>
-      </li>
+    // Previous button
+    const previousBtn = `
+        <li class="page-item ${currentPage === 1 ? "disabled" : ""}">
+            <button class="page-link gallery-page" data-page="${currentPage - 1}">
+                &laquo;
+            </button>
+        </li>
     `;
 
-    pagination_bottom.innerHTML += pagination_btn;
-    pagination_top.innerHTML += pagination_btn;
-  }
+    $paginationBottom.append(previousBtn);
+    $paginationTop.append(previousBtn);
+
+    // Page numbers
+    for (let i = 1; i <= pageCount; i++) {
+        const paginationBtn = `
+            <li class="page-item ${i === currentPage ? "active" : ""}">
+                <button class="page-link gallery-page" data-page="${i}">
+                    ${i}
+                </button>
+            </li>
+        `;
+
+        $paginationBottom.append(paginationBtn);
+        $paginationTop.append(paginationBtn);
+    }
+
+    // Next button
+    const nextBtn = `
+        <li class="page-item ${currentPage === pageCount ? "disabled" : ""}">
+            <button class="page-link gallery-page" data-page="${currentPage + 1}">
+                &raquo;
+            </button>
+        </li>
+    `;
+
+    $paginationBottom.append(nextBtn);
+    $paginationTop.append(nextBtn);
 }
 
 function goToGalleryPage(page) {
-  currentPage = page;
-  displayImages();
-  displayPagination();
-}
+    const pageLimit = Math.ceil(images.length / imagesPerPage);
 
-function showFullImage(src, alt) {
-  modalImage.src = src;
-  modalImage.alt = alt;
-}
+    if (page < 1 || page > pageLimit) {
+        return;
+    }
 
-async function loadImageList() {
-
-    const response = await fetch("/data/gallery.json");
-
-    images = await response.json();
-
-    console.log(images);
-
+    currentPage = page;
     displayImages();
     displayPagination();
 }
 
-loadImageList();
+function showFullImage(src, alt) {
+    $modalImage.attr({
+        src: src,
+        alt: alt
+    });
+}
 
+async function loadImageList() {
+    try {
+        const response = await $.getJSON("/data/gallery.json");
+
+        images = response;
+
+        console.log(images);
+
+        displayImages();
+        displayPagination();
+    } catch (error) {
+        console.error("Failed to load gallery:", error);
+    }
+}
+
+// Pagination click
+$(document).on("click", ".gallery-page", function () {
+    goToGalleryPage($(this).data("page"));
+});
+
+// Gallery image click
+$(document).on("click", ".gallery_item", function () {
+    showFullImage(
+        $(this).data("src"),
+        $(this).data("alt")
+    );
+});
+
+// Load gallery
+$(function () {
+    loadImageList();
+});

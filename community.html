@@ -8,13 +8,13 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/navbar_style.css">
-    <link rel="stylesheet" href="css/footer_style.css">
-    <link rel="stylesheet" href="css/community_style.css">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/navbar_style.css">
+    <link rel="stylesheet" href="css/footer_style.css">
+    <link rel="stylesheet" href="css/community_style.css">
 </head>
 <body>
     <header>
@@ -22,28 +22,59 @@
     </header>
 
     <main>
-        <section id="page_title" class="page_title">
-            <h1>COMMUNITY</h1>
-            <p>Connect with a growing community united by the love of tokusatsu.</p>
-            <a id="join_btn" type="button" class="btn btn-primary" target="_blank"
-                href="https://discord.gg/4AddNtrVyC" 
-            >
-                Join our Discord server
-            </a>
+        <section id="page_title">
+            <div class="page_title p-5 container-fluid d-flex
+                            justify-content-center align-items-center">
+                <div class="row d-flex flex-column p-5
+                            justify-content-center align-items-center">
+                    
+                    <div class="col pb-3">
+                        <h1>
+                            COMMUNITY
+                        </h1>
+                    </div>
+                    
+                    <div class="col pb-3">
+                        <p>
+                            Connect with an ever growing community united by the love of the Tokusatsu genre.
+                        </p>
+                    </div>
+
+                    <div class="col">
+                        <a type="button" class="join_btn btn btn-primary text-wrap" target="_blank" 
+                                href="https://discord.gg/AUPSHXndrN">
+                            Join Our Discord
+                        </a>
+                    </div>
+                </div>
+
+                <img src="assets/Image/All_Rangers.webp" class="card_bg_image">
+            </div>
         </section>
 
-        <section class="gallery_section">
-            <h2>Community Gallery</h2>
+        <section id="gallery_section">
+            <div class="gallery_container container-fluid d-flex align-items-center justify-content-center">
+                <div class="row p-4 d-flex flex-column align-items-center justify-content-center">
+                    <div class="col text-center">
+                        <h2>Community Gallery</h2>
+                        <p>
+                            Click on the image to view their full size
+                        </p>
+                    </div>
 
-            <nav class="gallery_pagination">
-                <ul id="pagination_top" class="pagination"></ul>
-            </nav>
-
-            <div id="gallery_grid" class="gallery_grid"></div>
-
-            <nav class="gallery_pagination">
-                <ul id="pagination_bottom" class="pagination"></ul>
-            </nav>
+                    <div class="col">
+                        <nav class="gallery_pagination">
+                            <ul id="pagination_top" class="pagination"></ul>
+                        </nav>
+    
+                        <div id="gallery_grid" class="gallery_grid p-4"></div>
+    
+                        <nav class="gallery_pagination">
+                            <ul id="pagination_bottom" class="pagination"></ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <div class="modal fade" id="imageModal" tabindex="-1">
@@ -63,7 +94,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/94c96a59cb.js" crossorigin="anonymous"></script>
-    <script src="/js/community.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/community.js"></script>
 </body>
 </html>
 
